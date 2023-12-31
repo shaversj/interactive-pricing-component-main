@@ -3,3 +3,124 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.range-slider {
+    height: .5rem
+}
+
+.range-slider .range-slider__range {
+    border-radius: 6px;
+    background: hsl(174, 77%, 80%)
+    /* CSS for active (actively being dragged) range */
+}
+.range-slider .range-slider__thumb {
+    /* CSS for thumbs */
+    background: url("/src/assets/images/icon-slider.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: hsl(174, 86%, 45%);
+    border-radius: 50%;
+    height: 42px;
+    width: 42px;
+}
+.range-slider .range-slider__thumb[data-lower] {
+    /* CSS for lower thumb */
+    width: 0;
+}
+
+.range-slider__thumb:hover {
+        filter: brightness(110%);
+        opacity: 60%;
+        box-shadow: 0 18px 35px hsl(174, 86%, 45%)
+}
+
+
+/*!********** Range Input Styles **********!*/
+/*!*Range Reset*!*/
+/*input[type="range"] {*/
+/*    -webkit-appearance: none;*/
+/*    appearance: none;*/
+/*    background: transparent;*/
+/*    cursor: pointer;*/
+/*    width: 100%;*/
+/*}*/
+
+/*!* Removes default focus *!*/
+/*input[type="range"]:focus {*/
+/*    outline: none;*/
+/*}*/
+
+/*!***** Chrome, Safari, Opera and Edge Chromium styles *****!*/
+/*!* slider track *!*/
+/*input[type="range"]::-webkit-slider-runnable-track {*/
+/*    width: 100%;*/
+/*    background-color: hsl(228,48%,96%);*/
+/*    border-radius: 30px;*/
+/*    height: 0.5rem;*/
+/*}*/
+
+/*!* slider thumb *!*/
+/*input[type="range"]::-webkit-slider-thumb {*/
+/*    -webkit-appearance: none; !* Override default look *!*/
+/*    appearance: none;*/
+/*    margin-top: -17.5px; !* Centers thumb on the track *!*/
+
+/*    !*custom styles*!*/
+/*    !*background-color: #5cd5eb;*!*/
+/*    background: url("/src/assets/images/icon-slider.svg");*/
+/*    background-position: center;*/
+/*    background-repeat: no-repeat;*/
+/*    background-color: hsl(174, 86%, 45%);*/
+/*    border-radius: 50%;*/
+/*    height: 42px;*/
+/*    width: 42px;*/
+/*}*/
+
+/*input[type="range"]:hover::-webkit-slider-thumb {*/
+/*    filter: brightness(110%);*/
+/*    opacity: 60%;*/
+/*    box-shadow: 0 18px 35px hsl(174, 86%, 45%)*/
+/*}*/
+
+/*!******** Firefox styles ********!*/
+/*!* slider track *!*/
+/*input[type="range"]::-moz-range-track {*/
+/*    width: 100%;*/
+/*    background-color: hsl(228,48%,96%);*/
+/*    border-radius: 30px;*/
+/*    height: 0.5rem;*/
+/*}*/
+
+/*!* slider thumb *!*/
+/*input[type="range"]::-moz-range-thumb {*/
+/*    border: none; !*Removes extra border that FF applies*!*/
+/*    border-radius: 0; !*Removes default border-radius that FF applies*!*/
+
+/*    !*custom styles*!*/
+/*    !*background-color: #5cd5eb;*!*/
+/*    background: url("/src/assets/images/icon-slider.svg");*/
+/*    background-position: center;*/
+/*    background-repeat: no-repeat;*/
+/*    background-color: hsl(174, 86%, 45%);*/
+/*    border-radius: 50%;*/
+/*    height: 42px;*/
+/*    width: 42px;*/
+
+
+/*}*/
+
+/*input[type="range"]:hover::-moz-range-thumb {*/
+/*    filter: brightness(110%);*/
+/*    opacity: 60%;*/
+/*    box-shadow: 0 18px 35px hsl(174, 86%, 45%)*/
+/*}*/
+
+
+/*!* Left side progress bar *!*/
+/*input[type="range"]::-moz-range-progress {*/
+/*    background: hsl(174, 77%, 80%);*/
+/*    border-radius: 30px;*/
+/*    height: .5rem;*/
+
+
+/*}*/
