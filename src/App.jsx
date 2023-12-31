@@ -5,14 +5,13 @@ import { Switch } from "@headlessui/react";
 
 function App() {
   const [sliderValue, setSliderValue] = useState();
-  const [enabled, setEnabled] = useState(false);
-  const [discountApplied, setDiscountApplied] = useState(false);
+  const [applyDiscount, setApplyDiscount] = useState(false);
 
   const pageViews = ["10k", "50k", "100K", "500K", "1M"];
   const prices = [8, 12, 16, 24, 36];
 
   const getPrice = (idx) => {
-    return enabled ? prices[idx] - prices[idx] * 0.25 : prices[idx];
+    return applyDiscount ? prices[idx] - prices[idx] * 0.25 : prices[idx];
   };
 
   return (
@@ -53,13 +52,13 @@ function App() {
             <div className={"flex items-center justify-center gap-x-3 py-8"}>
               <span className={"text-xs font-medium text-neutral-grayish-blue"}>Monthly Billing</span>
               <Switch
-                checked={enabled}
-                onChange={setEnabled}
+                checked={applyDiscount}
+                onChange={setApplyDiscount}
                 className={`${
-                  enabled ? "bg-neutral-light-grayish-blue-toggle" : "bg-neutral-light-grayish-blue-toggle"
+                  applyDiscount ? "bg-neutral-light-grayish-blue-toggle" : "bg-neutral-light-grayish-blue-toggle"
                 } relative inline-flex h-6 w-11 items-center rounded-full hover:bg-primary-soft-cyan`}
               >
-                <span className={`${enabled ? "translate-x-6" : "translate-x-1"} inline-block h-4 w-4 transform rounded-full bg-white transition`} />
+                <span className={`${applyDiscount ? "translate-x-6" : "translate-x-1"} inline-block h-4 w-4 transform rounded-full bg-white transition`} />
               </Switch>
               <span className={"text-xs font-medium text-neutral-grayish-blue"}>Yearly Billing</span>
               <div className={"flex items-center rounded-2xl bg-primary-light-grayish-red "}>
