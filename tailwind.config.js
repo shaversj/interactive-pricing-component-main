@@ -13,6 +13,7 @@ export default {
         "primary-strong-cyan": "hsl(174, 86%, 45%)",
         "primary-light-grayish-red": "hsl(14, 92%, 95%)",
         "primary-light-red": "hsl(15, 100%, 70%)",
+        "primary-discount-red": "hsl(360, 100%,96%)",
         "primary-pale-blue": "hsl(226, 100%, 87%)",
         "neutral-very-pale-blue": "hsl(230, 100%, 99%)",
         "neutral-light-grayish-blue": "hsl(224, 65%, 95%)",

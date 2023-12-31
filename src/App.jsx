@@ -1,12 +1,20 @@
 import { useState } from "react";
 import RangeSlider from "react-range-slider-input";
 import "react-range-slider-input/dist/style.css";
+import { Switch } from "@headlessui/react";
 
 function App() {
   const [sliderValue, setSliderValue] = useState();
+  const [enabled, setEnabled] = useState(false);
+  const [discountApplied, setDiscountApplied] = useState(false);
 
   const pageViews = ["10k", "50k", "100K", "500K", "1M"];
-  const cost = [8, 12, 16, 24, 36];
+  const prices = [8, 12, 16, 24, 36];
+
+  const getPrice = (idx) => {
+    return enabled ? prices[idx] - prices[idx] * 0.25 : prices[idx];
+  };
+
   return (
     <>
       <div className={"grid min-h-screen place-items-center bg-black"}>
@@ -36,16 +44,29 @@ function App() {
               />
             </div>
             <div className={"flex items-center justify-center gap-x-2"}>
-              <span className={"text-[32px] font-bold text-neutral-dark-desaturated-blue"}>${sliderValue ? cost[sliderValue[1]] : cost[0]}.00</span>
+              <span className={"text-[32px] font-bold text-neutral-dark-desaturated-blue"}>${sliderValue ? getPrice(sliderValue[1]) : getPrice(0)}.00</span>
               <div className={""}>
                 <span className={"text-sm text-neutral-grayish-blue"}>/ month</span>
               </div>
             </div>
 
-            <div className={"flex justify-center py-8"}>
+            <div className={"flex items-center justify-center gap-x-3 py-8"}>
               <span className={"text-xs font-medium text-neutral-grayish-blue"}>Monthly Billing</span>
+              <Switch
+                checked={enabled}
+                onChange={setEnabled}
+                className={`${
+                  enabled ? "bg-neutral-light-grayish-blue-toggle" : "bg-neutral-light-grayish-blue-toggle"
+                } relative inline-flex h-6 w-11 items-center rounded-full hover:bg-primary-soft-cyan`}
+              >
+                <span className={`${enabled ? "translate-x-6" : "translate-x-1"} inline-block h-4 w-4 transform rounded-full bg-white transition`} />
+              </Switch>
               <span className={"text-xs font-medium text-neutral-grayish-blue"}>Yearly Billing</span>
+              <div className={"flex items-center rounded-2xl bg-primary-light-grayish-red "}>
+                <span className={"px-2 py-0.5 text-[10px] text-primary-light-red"}>-25%</span>
+              </div>
             </div>
+
             <div className={"h-[0.1rem] bg-neutral-line-color"}></div>
             <ul className={"list-inside list-image-[url(/src/assets/images/icon-check.svg)] space-y-2 py-8 text-center text-xs font-medium text-neutral-grayish-blue"}>
               <li>Unlimited websites</li>
