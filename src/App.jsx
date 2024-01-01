@@ -17,39 +17,49 @@ function App() {
   return (
     <>
       <div className={"grid min-h-screen place-items-center bg-black"}>
-        <div className={"mx-auto grid w-full max-w-screen-sm bg-temp-bg px-6 pb-20 font-Manrope"}>
-          <header className={"pb-[61px] pt-[94px]"}>
-            <h1 className={"text-center text-[20.5px] font-bold text-neutral-dark-desaturated-blue"}>Simple, traffic-based pricing</h1>
-            <p className={"text-center text-[13.5px] font-thin leading-6 text-neutral-grayish-blue"}>
+        <div id={"page"} className={"mx-auto grid h-[800px] w-full max-w-screen-sm px-6 pb-20 font-Manrope lg:flex lg:max-w-screen-lg lg:flex-col lg:items-center"}>
+          <header className={"bg-rings bg-center bg-no-repeat pb-[61px] pt-[88px] lg:pb-[88px] lg:pt-[103px]"}>
+            <h1 className={"text-center text-[20.5px] font-bold text-neutral-dark-desaturated-blue lg:text-[28.5px]"}>Simple, traffic-based pricing</h1>
+            <p className={"text-center text-[13px] font-light leading-6 tracking-wide text-neutral-grayish-blue sm:pt-1 lg:pt-2 lg:text-[14.5px] lg:font-medium"}>
               Sign-up for our 30-day trial.
-              <br /> No credit card required.
+              <br className={"lg:hidden"} /> No credit card required.
             </p>
           </header>
 
-          <main className={"rounded-md bg-white drop-shadow-sm"}>
-            <h2 className={"pt-[32px] text-center text-[12px] font-bold uppercase tracking-[0.16em] text-neutral-grayish-blue"}>{sliderValue ? pageViews[sliderValue[1]] : pageViews[0]} Pageviews</h2>
-            <div className={"flex items-center justify-center px-6 py-10"}>
-              <RangeSlider
-                id="range-slider"
-                min={0}
-                max={4}
-                step={1}
-                value={sliderValue}
-                defaultValue={[0, 0]}
-                orientation={"horizontal"}
-                thumbsDisabled={[true, false]}
-                rangeSlideDisabled={true}
-                onInput={setSliderValue}
-              />
-            </div>
-            <div className={"flex items-center justify-center gap-x-2"}>
-              <span className={"text-[31px] font-bold text-neutral-dark-desaturated-blue"}>${sliderValue ? getPrice(sliderValue[1]) : getPrice(0)}.00</span>
-              <div className={""}>
-                <span className={"text-sm text-neutral-grayish-blue"}>/ month</span>
+          <main className={"rounded-md bg-white drop-shadow-sm lg:w-[542px]  lg:drop-shadow-xl"}>
+            <div className={"lg:grid lg:grid-cols-2 lg:px-[48px]"}>
+              <h2
+                className={
+                  "pt-[32px] text-center text-[12px] font-bold uppercase tracking-[0.16em] text-neutral-grayish-blue lg:row-start-1 lg:flex lg:items-center lg:justify-start lg:pt-[40px] lg:text-[14.3px] lg:font-medium"
+                }
+              >
+                {sliderValue ? pageViews[sliderValue[1]] : pageViews[0]} Pageviews
+              </h2>
+
+              <div className={" px-6 py-10 lg:col-span-full lg:row-start-3 lg:px-0"}>
+                <RangeSlider
+                  id="range-slider"
+                  min={0}
+                  max={4}
+                  step={1}
+                  value={sliderValue}
+                  defaultValue={[0, 0]}
+                  orientation={"horizontal"}
+                  thumbsDisabled={[true, false]}
+                  rangeSlideDisabled={true}
+                  onInput={setSliderValue}
+                />
+              </div>
+
+              <div className={"flex items-center justify-center sm:gap-x-2 lg:col-start-2 lg:row-start-1 lg:justify-end lg:pt-[40px]"}>
+                <span className={" text-[31px] font-bold text-neutral-dark-desaturated-blue lg:text-[39px]"}>${sliderValue ? getPrice(sliderValue[1]) : getPrice(0)}.00</span>
+                <div className={""}>
+                  <span className={"text-sm text-neutral-grayish-blue lg:text-base"}>/ month</span>
+                </div>
               </div>
             </div>
 
-            <div className={"flex items-center justify-end gap-x-3 px-3 pb-[38px] pt-8"}>
+            <div className={"flex items-center justify-end gap-x-3 px-3 pb-[39px] sm:pt-[33px] lg:justify-end lg:gap-x-[16px] lg:px-[65px] lg:pt-[1.05rem]"}>
               <span className={"text-xs font-normal text-neutral-grayish-blue"}>Monthly Billing</span>
               <Switch
                 checked={applyDiscount}
@@ -62,20 +72,39 @@ function App() {
               </Switch>
               <span className={"text-xs font-normal text-neutral-grayish-blue"}>Yearly Billing</span>
               <div className={"flex items-center rounded-2xl bg-primary-light-grayish-red "}>
-                <span className={"px-2 py-0.5 text-[10px] text-primary-light-red"}>-25%</span>
+                <span className={"px-2 py-0.5 text-[10px] text-primary-light-red"}>
+                  <span className={"lg:hidden"}>-</span>
+                  <span>25%</span>
+                  <span className={"sm:hidden lg:inline-flex"}>&nbsp; discount</span>
+                </span>
               </div>
             </div>
 
             <div className={"h-[0.1rem] bg-neutral-line-color"}></div>
-            <ul className={"list-inside list-image-[url(/src/assets/images/icon-check.svg)] space-y-2.5 pb-8 pt-6 text-center text-xs font-normal tracking-wide text-neutral-grayish-blue"}>
-              <li>Unlimited websites</li>
-              <li>100% data ownership</li>
-              <li>Email reports</li>
-            </ul>
-            <div className={"flex justify-center pb-8"}>
-              <button className={"flex rounded-full bg-neutral-dark-desaturated-blue px-[3rem] py-[.8rem] text-primary-pale-blue"}>
-                <span className={"text-xs font-semibold"}>Start my trial</span>
-              </button>
+
+            <div className={"pb-8 lg:col-span-full lg:grid lg:grid-cols-2 lg:justify-start lg:pl-[15px] lg:pt-3"}>
+              <ul
+                className={
+                  "list-inside list-image-[url(/src/assets/images/icon-check.svg)] space-y-2.5 px-[30px] pb-8 pt-6 text-center text-xs font-normal " +
+                  "tracking-wide text-neutral-grayish-blue lg:col-start-1 lg:flex-col lg:justify-center lg:pb-0 lg:text-left"
+                }
+              >
+                <li>
+                  <span className={"pl-[13.5px]"}>Unlimited websites</span>
+                </li>
+                <li>
+                  <span className={"pl-[13.5px]"}>100% data ownership</span>
+                </li>
+                <li>
+                  <span className={"pl-[13.5px]"}>Email reports</span>
+                </li>
+              </ul>
+
+              <div className={"flex justify-center lg:col-start-2 lg:items-center lg:pt-5"}>
+                <button className={"flex rounded-full bg-neutral-dark-desaturated-blue px-[3rem] py-[.8rem] text-primary-pale-blue"}>
+                  <span className={"text-xs font-semibold"}>Start my trial</span>
+                </button>
+              </div>
             </div>
           </main>
         </div>

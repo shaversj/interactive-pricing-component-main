@@ -7,6 +7,9 @@ export default {
       lg: "1440px",
     },
     extend: {
+      backgroundImage: {
+        rings: 'url("/src/assets/images/pattern-circles.svg")',
+      },
       colors: {
         "temp-bg": "hsl(217, 92%, 97%)",
         "primary-soft-cyan": "hsl(174, 77%, 80%)",
