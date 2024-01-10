@@ -9,6 +9,15 @@
     background-repeat: no-repeat;
 }
 
+@media (min-width: 1440px) {
+    #page {
+        background: url("/src/assets/images/bg-pattern.svg"),hsl(230, 100%, 99%);
+        background-repeat: no-repeat;
+        background-size: contain, contain;
+        background-position: top;
+    }
+}
+
 .range-slider {
     height: .5rem;
     background-color: hsl(224, 65%, 95%)
