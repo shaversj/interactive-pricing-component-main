@@ -26,7 +26,7 @@ function App() {
             </p>
           </header>
 
-          <main className={"rounded-md bg-white drop-shadow-sm lg:w-[542px]  lg:drop-shadow-xl"}>
+          <main className={"rounded-md bg-white shadow-[0px_10px_23px_1px_#ebebf5] drop-shadow-sm  lg:w-[542px]"}>
             <div className={"lg:grid lg:grid-cols-2 lg:px-[48px]"}>
               <h2
                 className={
@@ -36,19 +36,22 @@ function App() {
                 {sliderValue ? pageViews[sliderValue[1]] : pageViews[0]} Pageviews
               </h2>
 
-              <div className={" px-6 py-10 lg:col-span-full lg:row-start-3 lg:px-0"}>
-                <RangeSlider
-                  id="range-slider"
-                  min={0}
-                  max={4}
-                  step={1}
-                  value={sliderValue}
-                  defaultValue={[0, 0]}
-                  orientation={"horizontal"}
-                  thumbsDisabled={[true, false]}
-                  rangeSlideDisabled={true}
-                  onInput={setSliderValue}
-                />
+              <div className={"px-6 py-10 lg:col-span-full lg:row-start-3 lg:px-0"}>
+                <label aria-label={"Slider"}>
+                  <RangeSlider
+                    aria-label={"Range slider to select price"}
+                    id="range-slider"
+                    min={0}
+                    max={4}
+                    step={1}
+                    value={sliderValue}
+                    defaultValue={[0, 0]}
+                    orientation={"horizontal"}
+                    thumbsDisabled={[true, false]}
+                    rangeSlideDisabled={true}
+                    onInput={setSliderValue}
+                  />
+                </label>
               </div>
 
               <div className={"flex items-center justify-center sm:gap-x-2 lg:col-start-2 lg:row-start-1 lg:justify-end lg:pt-[40px]"}>
@@ -68,6 +71,7 @@ function App() {
                   applyDiscount ? "bg-neutral-light-grayish-blue-toggle" : "bg-neutral-light-grayish-blue-toggle"
                 } relative inline-flex h-[22px] w-[43px] items-center rounded-full hover:bg-primary-soft-cyan`}
               >
+                <span className="sr-only">Slider</span>
                 <span className={`${applyDiscount ? "translate-x-6" : "translate-x-1"} inline-block h-4 w-4 transform rounded-full bg-white transition`} />
               </Switch>
               <span className={"text-xs font-normal text-neutral-grayish-blue"}>Yearly Billing</span>
@@ -80,7 +84,7 @@ function App() {
               </div>
             </div>
 
-            <div className={"h-[0.1rem] bg-neutral-line-color"}></div>
+            <div className={"h-[0.1rem] bg-neutral-line-color lg:h-[0.05rem]"}></div>
 
             <div className={"pb-8 lg:col-span-full lg:grid lg:grid-cols-2 lg:justify-start lg:pl-[15px] lg:pt-3"}>
               <ul
@@ -101,7 +105,7 @@ function App() {
               </ul>
 
               <div className={"flex justify-center lg:col-start-2 lg:items-center lg:pt-5"}>
-                <button className={"flex rounded-full bg-neutral-dark-desaturated-blue px-[3rem] py-[.8rem] text-primary-pale-blue"}>
+                <button aria-label={"Button to start trial with selected price"} className={"flex rounded-full bg-neutral-dark-desaturated-blue px-[3rem] py-[.8rem] text-primary-pale-blue"}>
                   <span className={"text-xs font-semibold"}>Start my trial</span>
                 </button>
               </div>
