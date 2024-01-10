@@ -17,7 +17,7 @@ function App() {
   return (
     <>
       <div className={"grid min-h-screen place-items-center bg-black"}>
-        <div id={"page"} className={" mx-auto grid h-[800px] w-full max-w-screen-sm px-6 pb-20 font-Manrope lg:flex lg:max-w-screen-lg lg:flex-col lg:items-center"}>
+        <div id={"page"} className={"mx-auto grid h-[800px] w-full max-w-screen-sm px-6 pb-20 font-Manrope lg:flex lg:max-w-screen-lg lg:flex-col lg:items-center lg:px-0 lg:pb-0"}>
           <header className={"bg-rings bg-center bg-no-repeat pb-[61px] pt-[88px] lg:pb-[88px] lg:pt-[103px]"}>
             <h1 className={"text-center text-[20.5px] font-bold text-neutral-dark-desaturated-blue lg:text-[28.5px]"}>Simple, traffic-based pricing</h1>
             <p className={"text-center text-[13px] font-light leading-6 tracking-wide text-neutral-grayish-blue sm:pt-1 lg:pt-2 lg:text-[14.5px] lg:font-medium"}>
