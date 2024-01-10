@@ -17,7 +17,7 @@ function App() {
   return (
     <>
       <div className={"grid min-h-screen place-items-center bg-black"}>
-        <div id={"page"} className={"mx-auto grid h-[800px] w-full max-w-screen-sm px-6 pb-20 font-Manrope lg:flex lg:max-w-screen-lg lg:flex-col lg:items-center"}>
+        <div id={"page"} className={" mx-auto grid h-[800px] w-full max-w-screen-sm px-6 pb-20 font-Manrope lg:flex lg:max-w-screen-lg lg:flex-col lg:items-center"}>
           <header className={"bg-rings bg-center bg-no-repeat pb-[61px] pt-[88px] lg:pb-[88px] lg:pt-[103px]"}>
             <h1 className={"text-center text-[20.5px] font-bold text-neutral-dark-desaturated-blue lg:text-[28.5px]"}>Simple, traffic-based pricing</h1>
             <p className={"text-center text-[13px] font-light leading-6 tracking-wide text-neutral-grayish-blue sm:pt-1 lg:pt-2 lg:text-[14.5px] lg:font-medium"}>
@@ -33,7 +33,7 @@ function App() {
                   "pt-[32px] text-center text-[12px] font-bold uppercase tracking-[0.16em] text-neutral-grayish-blue lg:row-start-1 lg:flex lg:items-center lg:justify-start lg:pt-[40px] lg:text-[14.3px] lg:font-medium"
                 }
               >
-                {sliderValue ? pageViews[sliderValue[1]] : pageViews[0]} Pageviews
+                {sliderValue ? pageViews[sliderValue[1]] : pageViews[2]} Pageviews
               </h2>
 
               <div className={"px-6 py-10 lg:col-span-full lg:row-start-3 lg:px-0"}>
@@ -45,7 +45,7 @@ function App() {
                     max={4}
                     step={1}
                     value={sliderValue}
-                    defaultValue={[0, 0]}
+                    defaultValue={[0, 2]}
                     orientation={"horizontal"}
                     thumbsDisabled={[true, false]}
                     rangeSlideDisabled={true}
@@ -55,7 +55,7 @@ function App() {
               </div>
 
               <div className={"flex items-center justify-center sm:gap-x-2 lg:col-start-2 lg:row-start-1 lg:justify-end lg:pt-[40px]"}>
-                <span className={" text-[31px] font-bold text-neutral-dark-desaturated-blue lg:text-[39px]"}>${sliderValue ? getPrice(sliderValue[1]) : getPrice(0)}.00</span>
+                <span className={" text-[31px] font-bold text-neutral-dark-desaturated-blue lg:text-[39px]"}>${sliderValue ? getPrice(sliderValue[1]) : getPrice(2)}.00</span>
                 <div className={""}>
                   <span className={"text-sm text-neutral-grayish-blue lg:text-base"}>/ month</span>
                 </div>
